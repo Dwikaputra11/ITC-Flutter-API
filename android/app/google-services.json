@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "179601431762",
+    "project_id": "final-project-sanbercode-342b7",
+    "storage_bucket": "final-project-sanbercode-342b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179601431762:android:d7c433a789909662ce210b",
+        "android_client_info": {
+          "package_name": "com.example.final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179601431762-mdmh0118dsius6pp4u92u057ajlh4lni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcJUIuBzEIwovmWc47trm-DvOiIKC8nBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179601431762-mdmh0118dsius6pp4u92u057ajlh4lni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
