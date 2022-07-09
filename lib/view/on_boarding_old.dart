@@ -8,20 +8,23 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'login_screeen.dart';
 
 class OnBoarding extends StatelessWidget {
-  OnBoarding({ Key? key }) : super(key: key);
+  OnBoarding({Key? key}) : super(key: key);
 
   final pageDecoration = PageDecoration(
-    titleTextStyle: PageDecoration().titleTextStyle.copyWith(color: mainTextColor, fontSize: 20, fontWeight: FontWeight.w700),
-    bodyTextStyle: PageDecoration().bodyTextStyle.copyWith(color: mainTextColor, fontSize: 14),
+    titleTextStyle: const PageDecoration().titleTextStyle.copyWith(
+        color: mainTextColor, fontSize: 20, fontWeight: FontWeight.w700),
+    bodyTextStyle: const PageDecoration()
+        .bodyTextStyle
+        .copyWith(color: mainTextColor, fontSize: 14),
     contentMargin: const EdgeInsets.all(10),
     pageColor: mainTheme,
   );
-  List<PageViewModel> getPages(){
-    return[
+  List<PageViewModel> getPages() {
+    return [
       PageViewModel(
         image: SvgPicture.asset("lib/utils/img/on_boarding_1.svg"),
         title: "Just Chill",
-        bodyWidget: Text(
+        bodyWidget: const Text(
           "Make your time!",
           style: onBoardingText,
         ),
@@ -30,7 +33,7 @@ class OnBoarding extends StatelessWidget {
       PageViewModel(
         image: SvgPicture.asset("lib/utils/img/on_boarding_2.svg"),
         title: "Have Fun",
-        bodyWidget: Text(
+        bodyWidget: const Text(
           "You can watch anytime!",
           style: onBoardingText,
         ),
@@ -39,13 +42,15 @@ class OnBoarding extends StatelessWidget {
       PageViewModel(
         image: SvgPicture.asset("lib/utils/img/on_boarding_3.svg"),
         title: "Have Fun",
-        bodyWidget: Text(
-          "You can watch anytime!",style: onBoardingText,
+        bodyWidget: const Text(
+          "You can watch anytime!",
+          style: onBoardingText,
         ),
         decoration: pageDecoration,
       ),
     ];
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,13 +63,11 @@ class OnBoarding extends StatelessWidget {
             width: 200,
             height: 40,
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: buttonGetStarted
-              ),
-              child: Text(
+              style: ElevatedButton.styleFrom(primary: buttonGetStarted),
+              child: const Text(
                 "Get Strated",
               ),
-              onPressed: (){
+              onPressed: () {
                 Get.to(const LoginScreen());
               },
             ),
@@ -72,16 +75,14 @@ class OnBoarding extends StatelessWidget {
         ),
         showNextButton: false,
         dotsDecorator: DotsDecorator(
-          size: const Size.square(10.0),
-          activeSize: const Size(12.0, 12.0),
-          activeColor: Colors.white,
-          color: dotColors,
-          spacing: const EdgeInsets.symmetric(horizontal: 3.0),
-          activeShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25.0)
-          )
-        ),
-        onDone: (){},
+            size: const Size.square(10.0),
+            activeSize: const Size(12.0, 12.0),
+            activeColor: Colors.white,
+            color: dotColors,
+            spacing: const EdgeInsets.symmetric(horizontal: 3.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0))),
+        onDone: () {},
       ),
     );
   }

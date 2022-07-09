@@ -1,7 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/view/home_screen.dart';
 import 'package:final_project/view/register_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -48,7 +49,9 @@ class AuthController extends GetxController {
   }
 
   _setInitialScreenGoogle(GoogleSignInAccount? googleSignInAccount) {
-    print(googleSignInAccount);
+    if (kDebugMode) {
+      print(googleSignInAccount);
+    }
     if (googleSignInAccount == null) {
       // if the user is not found then the user is navigated to the Register Screen
       Get.offAll(() => const RegisterScreen());
@@ -81,7 +84,9 @@ class AuthController extends GetxController {
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,
       );
-      print(e.toString());
+      if (kDebugMode) {
+        print(e.toString());
+      }
     }
   }
 
@@ -89,13 +94,17 @@ class AuthController extends GetxController {
     try {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);     
-    } catch (firebaseAuthException) {}
+    } catch (firebaseAuthException) {
+      rethrow;
+    }
   }
 
-  void login(String email, password) async {
+  void login(String email, password, BuildContext context) async {
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
-    } catch (firebaseAuthException) {}
+    } catch (firebaseAuthException) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Enter your email and password')));
+    }
   }
 
   void signOut() async {

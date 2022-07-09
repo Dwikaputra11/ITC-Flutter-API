@@ -1,8 +1,6 @@
-import 'package:final_project/configs/config.dart';
 import 'package:final_project/controller/auth_controller.dart';
 import 'package:final_project/utils/colors.dart';
 import 'package:final_project/utils/font_style.dart';
-import 'package:final_project/view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -30,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
@@ -47,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     "Login",
                     style: loginRegisterTitle,),
                   SizedBox(height: size.height*0.05,),
@@ -66,16 +64,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.only(left: 20.0, right: 30),
                           child: TextField(
                             controller: _emailController,
+                            style: const TextStyle(color: Colors.white),
                             decoration: InputDecoration(
-                              border: InputBorder.none,
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                               ),
-                              hintText: 'Email ID',
-                              hintStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400
+                              focusedBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                               ),
+                              labelText: 'Email ID',
+                              labelStyle: const TextStyle(color: Colors.white),
                               icon: SvgPicture.asset('lib/utils/img/email.svg', color: Colors.white),
                             ),
                           ),
@@ -86,15 +84,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextField(
                             controller: _passwordController,
                             obscureText: !_passwordVisible!,
+                            style: const TextStyle(color: Colors.white),
                             decoration: InputDecoration(
-                              border: InputBorder.none,
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                               ),
-                              hintText: 'Password',
-                              hintStyle: TextStyle(
-                                color: Colors.white
+                              focusedBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xFFE5E5E5)),
                               ),
+                              labelText: 'Password',
+                              labelStyle: const TextStyle(color: Colors.white),
                               icon: SvgPicture.asset('lib/utils/img/password.svg', color: Colors.white,),
                               suffixIcon: IconButton(
                                 icon: Icon(
@@ -117,18 +116,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: EdgeInsets.only(left: size.width*0.4),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 'New Here?',
                                 style: mainTextStyle_14,
                               ),
                               TextButton(
-                                child: Text(
+                                child: const Text(
                                   ' Register',
                                   style: mainTextStyleBold_14
                                 ),
                                 onPressed: (){
-                                  Get.to(RegisterScreen());
-                                }, // TODO: Complete onpressed
+                                  Get.to(() => const RegisterScreen());
+                                },
                               ),
                             ],
                           ),
@@ -145,14 +144,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                         backgroundColor: MaterialStateProperty.all<Color>(Colors.white.withOpacity(0.3)),
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
+                          const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(20)),
                           )
                         ),
                       ),
                       onPressed: () async{
                         AuthController.instance.login(_emailController.text.trim(), 
-                        _passwordController.text.trim());
+                        _passwordController.text.trim(), context);
                         // Get.to(() => const HomeScreen());
                       }, 
                       child: const Text(

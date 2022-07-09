@@ -34,12 +34,12 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 200,
           height: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[ 
+            children: const <Widget>[ 
               Text(
                 'JustWatch.',
                 style: TextStyle(
@@ -49,42 +49,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: mainTextColor,
                 ),
               ),
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              Padding(padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Divider(thickness: 2, color: Colors.white,)
               ),
-              // Container(
-              //   margin: const EdgeInsets.only(top: 20),
-              //   child: RoundedProgressBar(
-              //     milliseconds: 5000,
-              //     height: 10,
-              //     style: RoundedProgressBarStyle(
-              //       widthShadow: 0,colorBorder: Colors.white,
-              //       borderWidth: 1,
-              //       colorProgress: Colors.white,
-              //       backgroundProgress: mainTheme,
-              //     ),
-              //     borderRadius: BorderRadius.circular(16),
-              //   ),
-              // )
-              // Consumer<TimeState>(builder: (context, timeState, _) => CostumProgressBar(
-              //   width: 200,
-              //   value: timeState.time,
-              //   totalValue: 15,
-              //   ),
-              // ),
-              // Consumer<TimeState>(
-              //   builder: (context, timeState, _) => ElevatedButton(
-                  
-              //     onPressed:() {
-              //       Timer.periodic(Duration(seconds: 1),(timer){
-              //       if(timeState.time == 15) timer.cancel();
-              //       else timeState.time+= 1;
-              //       });
-              //     }, 
-              //     child: Text(""),
-                  
-              //   )
-              // )
             ],
           ),
         ),

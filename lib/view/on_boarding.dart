@@ -17,20 +17,20 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   int _currentPage = 0;
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
 
-  List<Widget> _pages =[
-    SliderPage(
+  final List<Widget> _pages =[
+    const SliderPage(
       title: "How To Know",
       description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.",
       image: "lib/utils/img/on_boarding_1.svg",
     ),
-    SliderPage(
+    const SliderPage(
       title: "How To Know",
       description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.",
       image: "lib/utils/img/on_boarding_2.svg",
     ),
-    SliderPage(
+    const SliderPage(
       title: "How To Know",
       description: "Lorem ipsum dolor sit amet consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit.",
       image: "lib/utils/img/on_boarding_3.svg",
@@ -71,10 +71,10 @@ class _OnBoardingState extends State<OnBoarding> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List<Widget>.generate(_pages.length, (index){
                         return AnimatedContainer(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           height: (index == _currentPage) ? 10:8,
                           width: (index == _currentPage) ? 10:8,
-                          margin: EdgeInsets.symmetric(horizontal: 5, vertical: 30),
+                          margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 30),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: (index == _currentPage) ? Colors.white : Colors.white.withOpacity(0.5)
@@ -91,7 +91,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Get.to(LoginScreen());
+                        Get.to(const LoginScreen());
                       },
                       child: Center(
                         child: Container(
@@ -102,7 +102,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             borderRadius: BorderRadius.circular(20),
                             color: buttonGetStarted,
                           ),
-                          child: Center(child: Text("Get Started",style: onBoardingText)),
+                          child: const Center(child: Text("Get Started",style: onBoardingText)),
                         ),
                       ),
                     ),
